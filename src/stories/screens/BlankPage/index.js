@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Container, Header, Title, Content, Text, Button, Icon, Left, Right, Body } from "native-base";
+import { Container, Header, Title, Content, Text, Button, Icon, Left, Right, Body, Tab, Tabs,ScrollableTab } from "native-base";
 
 import styles from "./styles";
 export interface Props {
@@ -11,7 +11,7 @@ class BlankPage extends React.Component<Props, State> {
 		const param = this.props.navigation.state.params;
 		return (
 			<Container style={styles.container}>
-				<Header>
+				<Header hasTabs>
 					<Left>
 						<Button transparent onPress={() => this.props.navigation.goBack()}>
 							<Icon name="ios-arrow-back" />
@@ -24,6 +24,19 @@ class BlankPage extends React.Component<Props, State> {
 
 					<Right />
 				</Header>
+					<Tabs renderTabBar={()=> <ScrollableTab />}>
+				           <Tab heading="Curhat">
+				             <Text>1 </Text>
+				           </Tab>
+				           <Tab heading="Resources">
+				             <Text>2 </Text>
+				           </Tab>
+				           <Tab heading="Profile">
+				             <Text>3 </Text>
+				           </Tab>
+				         </Tabs>
+
+
 
 				<Content padder>
 					<Text>{param !== undefined ? param.name.item : "Create Something Awesome . . ."}</Text>
